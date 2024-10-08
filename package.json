@@ -1,8 +1,9 @@
 {
 	"private": true,
 	"scripts": {
-		"start": "cross-env ELEVENTY_ENV=development npm-run-all dev:clean dev:eleventy",
-		"build": "cross-env ELEVENTY_ENV=production npm-run-all build:clean build:eleventy",
+		"start": "cross-env ELEVENTY_ENV=development NOINDEX=true npm-run-all dev:clean dev:eleventy",
+		"build": "cross-env ELEVENTY_ENV=production NOINDEX=true npm-run-all build:clean build:eleventy",
+		"build-production": "cross-env ELEVENTY_ENV=production npm-run-all build:clean build:eleventy",
 		"zip": "npm-run-all build archive",
 		"archive": "bestzip build-production.zip build-production",
 		"clean": "rimraf build build-production build-production.zip",
